@@ -57,23 +57,27 @@ public class Field {
 		return result;
 	}
 
-
-	public boolean equals(Object field) {
-
-		if (this.getClass() != field.getClass()) {
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
 			return false;
-		}
-		
-		Field tmp = (Field) field;
-		
-		if(this.probability > 0 && this.next != null) {
-			if(this.probability == tmp.getProbability() & this.next.equals(tmp.getNext())) {
-				return true;
-			}
-		}
-		
-		return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Field other = (Field) obj;
+		if (next == null) {
+			if (other.next != null)
+				return false;
+		} else if (!next.equals(other.next))
+			return false;
+		if (probability != other.probability)
+			return false;
+		return true;
 	}
+
+
+
 	
 	
 }
