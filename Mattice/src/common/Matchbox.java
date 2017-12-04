@@ -75,7 +75,6 @@ public class Matchbox {
 		
 		Matchbox tmp = this.clone();
 		
-		//TODO
 		tmp.setField(this.getField(0, 0), 0, 2);
 		tmp.setField(this.getField(1, 0), 1, 2);
 		tmp.setField(this.getField(2, 0), 2, 2);
@@ -101,6 +100,8 @@ public class Matchbox {
 	}
 	
 	public boolean equals(Object box) {
+		//TODO rotation und spiegelung noch machen
+		
 		if(box == null | box.getClass() != this.getClass()) {
 			return false;
 		}
