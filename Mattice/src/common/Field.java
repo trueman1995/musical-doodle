@@ -6,17 +6,23 @@ public class Field {
 	private Matchbox next;
 
 	private int probability = -1;
-	
+	private int player = 0;
 
 
-	private Field() {}
+
+
+	public Field(int player) {
+		this.player = player;
+	}
 	
 	public Field(Matchbox next) {
 		this.next = next;
-		this.probability = 0;
+		this.probability = 1;
 	}
 	
-	
+
+	public Field() {
+	}
 
 	public boolean hasNext() {
 		if (next != null) {
@@ -25,7 +31,14 @@ public class Field {
 		return false;
 	}
 
+	public int getPlayer() {
+		return player;
+	}
 
+	public void setPlayer(int player) {
+		this.player = player;
+	}
+	
 	public Matchbox getNext() {
 		return next;
 	}
