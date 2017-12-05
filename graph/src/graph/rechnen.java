@@ -6,10 +6,10 @@ public class rechnen {
 
 	public static void main(String[] args) {
 
-		//graph mit Beispieldaten initialisieren und tiefen/breitensuche aufrufen
+		// graph mit Beispieldaten initialisieren und tiefen/breitensuche aufrufen
 
-		int num = 10;
-		int[][]  edges = new int[num][num];
+		final int num = 10;
+		int[][] edges = new int[num][num];
 
 		for (int i = 0; i < edges.length; i++) {
 			for (int j = 0; j < edges.length; j++) {
@@ -38,38 +38,36 @@ public class rechnen {
 
 		breitensuche(graph, 0);
 
-
-
 	}
 
-	//ACHTUNG!! terminiert bei kreisen/ringen nicht!!!
-	public static void tiefensuche(graph graph, int start){
+	// ACHTUNG!! terminiert bei kreisen/ringen nicht!!!
+	public static void tiefensuche(graph graph, int start) {
 
 		LinkedList<LinkedList<vertex>> tmp = graph.getNachfolger();
 
-		if (!tmp.get(start).isEmpty()){
+		if (!tmp.get(start).isEmpty()) {
 
 			vertex current = tmp.get(start).get(0);
-			for (int i = 0; i < tmp.get(start).size(); i++){
+			for (int i = 0; i < tmp.get(start).size(); i++) {
 				System.out.println(current.number + "-->" + tmp.get(start).get(i).number);
 				tiefensuche(graph, tmp.get(start).get(i).number);
 			}
 		}
 	}
 
-	//ACHTUNG!! terminiert bei kreisen/ringen nicht!!!
-	public static void breitensuche(graph graph, int start){
+	// ACHTUNG!! terminiert bei kreisen/ringen nicht!!!
+	public static void breitensuche(graph graph, int start) {
 
 		LinkedList<LinkedList<vertex>> tmp = graph.getNachfolger();
 
-		if (!tmp.get(start).isEmpty()){
+		if (!tmp.get(start).isEmpty()) {
 			vertex current = tmp.get(start).get(0);
 
-			for (int i = 0; i < tmp.get(start).size(); i++){
+			for (int i = 0; i < tmp.get(start).size(); i++) {
 				System.out.println(current.number + "-->" + tmp.get(start).get(i).number);
 			}
 
-			for (int i = 0; i < tmp.get(start).size(); i++){
+			for (int i = 0; i < tmp.get(start).size(); i++) {
 				breitensuche(graph, tmp.get(start).get(i).number);
 			}
 		}

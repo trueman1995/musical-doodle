@@ -5,17 +5,16 @@ import java.util.LinkedList;
 
 public class graph {
 
-	LinkedList<LinkedList<vertex>> vorgaenger;
-	LinkedList<LinkedList<vertex>> nachfolger;
+	private LinkedList<LinkedList<vertex>> vorgaenger;
+	private LinkedList<LinkedList<vertex>> nachfolger;
 
-	public graph(File name){
+	public graph(File name) {
 
 	}
 
-	public graph(int vertex_num, int[][] edges){
+	public graph(int vertex_num, int[][] edges) {
 		LinkedList<vertex> vertexlist = new LinkedList<vertex>();
-		//initiales einf�gen aller knoten
-
+		// initiales einf�gen aller knoten
 
 		vorgaenger = new LinkedList<LinkedList<vertex>>();
 		nachfolger = new LinkedList<LinkedList<vertex>>();
@@ -27,9 +26,7 @@ public class graph {
 
 		}
 
-
-
-		//einf�gen der nachfolger/vorgaengerliste
+		// einf�gen der nachfolger/vorgaengerliste
 		for (int i = 0; i < edges.length; i++) {
 			for (int j = 0; j < edges[0].length; j++) {
 				if (edges[i][j] != 0) {
@@ -55,6 +52,5 @@ public class graph {
 	public LinkedList<vertex> getNachfolger(int i) {
 		return nachfolger.get(i);
 	}
-
 
 }
