@@ -49,7 +49,7 @@ public class rechnen {
 
 			vertex current = tmp.get(start).get(0);
 			for (int i = 0; i < tmp.get(start).size(); i++) {
-				System.out.println(current.number + "-->" + tmp.get(start).get(i).number);
+				System.out.println(current.number + "-->" + (tmp.get(start).get(i).number+1));
 				tiefensuche(graph, tmp.get(start).get(i).number);
 			}
 		}
@@ -64,7 +64,7 @@ public class rechnen {
 			vertex current = tmp.get(start).get(0);
 
 			for (int i = 0; i < tmp.get(start).size(); i++) {
-				System.out.println(current.number + "-->" + tmp.get(start).get(i).number);
+				System.out.println(current.number + "-->" + (tmp.get(start).get(i).number+1));
 			}
 
 			for (int i = 0; i < tmp.get(start).size(); i++) {

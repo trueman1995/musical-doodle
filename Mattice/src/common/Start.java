@@ -11,9 +11,9 @@ public class Start {
 	
 	public void allPossibilities(Matchbox start) {
 		System.out.println(start.toString());
-		
+
 		while(!start.finished()) {
-			
+
 		}
 	}
 
