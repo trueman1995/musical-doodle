@@ -2,7 +2,7 @@ package graph;
 
 import java.util.LinkedList;
 
-public class rechnen {
+public class Rechnen_Search {
 
 	public static void main(String[] args) {
 
@@ -49,8 +49,8 @@ public class rechnen {
 
 			vertex current = tmp.get(start).get(0);
 			for (int i = 0; i < tmp.get(start).size(); i++) {
-				System.out.println(current.number + "-->" + (tmp.get(start).get(i).number+1));
-				tiefensuche(graph, tmp.get(start).get(i).number);
+				System.out.println(current.getNumber() + "-->" + (tmp.get(start).get(i).getNumber()+1));
+				tiefensuche(graph, tmp.get(start).get(i).getNumber());
 			}
 		}
 	}
@@ -64,11 +64,11 @@ public class rechnen {
 			vertex current = tmp.get(start).get(0);
 
 			for (int i = 0; i < tmp.get(start).size(); i++) {
-				System.out.println(current.number + "-->" + (tmp.get(start).get(i).number+1));
+				System.out.println(current.getNumber() + "-->" + (tmp.get(start).get(i).getNumber()+1));
 			}
 
 			for (int i = 0; i < tmp.get(start).size(); i++) {
-				breitensuche(graph, tmp.get(start).get(i).number);
+				breitensuche(graph, tmp.get(start).get(i).getNumber());
 			}
 		}
 	}

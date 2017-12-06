@@ -7,6 +7,8 @@ public class graph {
 
 	private LinkedList<LinkedList<vertex>> vorgaenger;
 	private LinkedList<LinkedList<vertex>> nachfolger;
+	private LinkedList<vertex> vertexlist;
+	private int[][] edges;
 
 	public graph(File name) {
 
@@ -14,6 +16,7 @@ public class graph {
 
 	public graph(int vertex_num, int[][] edges) {
 		LinkedList<vertex> vertexlist = new LinkedList<vertex>();
+		this.edges = edges;
 		// initiales einf�gen aller knoten
 
 		vorgaenger = new LinkedList<LinkedList<vertex>>();
@@ -37,6 +40,10 @@ public class graph {
 		}
 	}
 
+	public LinkedList<vertex> getVertexlist() {
+		return vertexlist;
+	}
+
 	public LinkedList<LinkedList<vertex>> getvorgaenger() {
 		return vorgaenger;
 	}
@@ -51,6 +58,10 @@ public class graph {
 
 	public LinkedList<vertex> getNachfolger(int i) {
 		return nachfolger.get(i);
+	}
+
+	public int getEdgeWeight(int i, int j) {
+		return edges[i][j];
 	}
 
 }
