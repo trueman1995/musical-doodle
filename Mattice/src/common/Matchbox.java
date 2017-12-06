@@ -98,6 +98,37 @@ public class Matchbox {
 		return tmp;
 	}
 
+	public int hashCode() {
+		int tmp = 0;
+
+		for (int j = 0; j < field.length; j++) {
+			for (int i = 0; i < field.length; i++) {
+				tmp = tmp + (int) ((field[i][j].getPlayer()+1)*Math.pow(10, (i*3+j)));
+			}
+		}
+
+		return tmp;
+	}
+	
+	public int[] getallHashes() {
+		int[] result = new int[8];
+		Matchbox tmp = this.clone();
+
+		result[0]=tmp.hashCode();
+		tmp = tmp.mirror();
+	    result[1] = tmp.hashCode();
+
+		for (int i = 2; i < 8; i+=2) {
+
+			tmp = tmp.rotate();
+			result[i] = tmp.hashCode();
+
+			tmp = tmp.mirror();
+			result[i+1] = tmp.hashCode();
+		}
+		return result;
+	}
+
 	public boolean equals(Object box) {
 
 		if (box == null | box.getClass() != this.getClass()) {
@@ -151,8 +182,8 @@ public class Matchbox {
 
 	public boolean finished() {
 
-		if (!this.hasWinner()) {
-			return false;
+		if (this.hasWinner()) {
+			return true;
 		}
 
 		for (int j = 0; j < field.length; j++) {
@@ -168,42 +199,42 @@ public class Matchbox {
 
 	public boolean hasWinner() {
 
-		if (field[0][0].getPlayer() == field[0][1].getPlayer() && field[0][0].getPlayer() == field[0][2].getPlayer()) {
+		if (field[0][0].getPlayer() != 0 && field[0][0].getPlayer() == field[0][1].getPlayer() && field[0][0].getPlayer() == field[0][2].getPlayer()) {
 			this.winner = field[0][0].getPlayer();
 			return true;
 		}
 
-		if (field[1][0].getPlayer() == field[1][1].getPlayer() && field[1][0].getPlayer() == field[1][2].getPlayer()) {
+		if (field[1][0].getPlayer() != 0 &&field[1][0].getPlayer() == field[1][1].getPlayer() && field[1][0].getPlayer() == field[1][2].getPlayer()) {
 			this.winner = field[1][0].getPlayer();
 			return true;
 		}
 
-		if (field[2][0].getPlayer() == field[2][1].getPlayer() && field[2][0].getPlayer() == field[2][2].getPlayer()) {
+		if (field[2][0].getPlayer() != 0 &&field[2][0].getPlayer() == field[2][1].getPlayer() && field[2][0].getPlayer() == field[2][2].getPlayer()) {
 			this.winner = field[2][0].getPlayer();
 			return true;
 		}
 
-		if (field[0][0].getPlayer() == field[1][0].getPlayer() && field[0][0].getPlayer() == field[2][0].getPlayer()) {
+		if (field[0][0].getPlayer() != 0 &&field[0][0].getPlayer() == field[1][0].getPlayer() && field[0][0].getPlayer() == field[2][0].getPlayer()) {
 			this.winner = field[0][0].getPlayer();
 			return true;
 		}
 
-		if (field[0][1].getPlayer() == field[1][1].getPlayer() && field[0][1].getPlayer() == field[2][1].getPlayer()) {
+		if (field[0][1].getPlayer() != 0 &&field[0][1].getPlayer() == field[1][1].getPlayer() && field[0][1].getPlayer() == field[2][1].getPlayer()) {
 			this.winner = field[0][1].getPlayer();
 			return true;
 		}
 
-		if (field[0][2].getPlayer() == field[1][2].getPlayer() && field[0][2].getPlayer() == field[2][2].getPlayer()) {
+		if (field[0][2].getPlayer() != 0 &&field[0][2].getPlayer() == field[1][2].getPlayer() && field[0][2].getPlayer() == field[2][2].getPlayer()) {
 			this.winner = field[0][2].getPlayer();
 			return true;
 		}
 
-		if (field[0][0].getPlayer() == field[1][1].getPlayer() && field[0][0].getPlayer() == field[2][2].getPlayer()) {
+		if (field[0][0].getPlayer() != 0 &&field[0][0].getPlayer() == field[1][1].getPlayer() && field[0][0].getPlayer() == field[2][2].getPlayer()) {
 			this.winner = field[0][0].getPlayer();
 			return true;
 		}
 
-		if (field[0][2].getPlayer() == field[1][1].getPlayer() && field[0][2].getPlayer() == field[2][0].getPlayer()) {
+		if (field[0][2].getPlayer() != 0 &&field[0][2].getPlayer() == field[1][1].getPlayer() && field[0][2].getPlayer() == field[2][0].getPlayer()) {
 			this.winner = field[0][2].getPlayer();
 			return true;
 		}
