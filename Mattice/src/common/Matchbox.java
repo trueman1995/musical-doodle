@@ -24,6 +24,14 @@ public class Matchbox {
 		}
 	}
 
+	public int getWinner() {
+		return winner;
+	}
+
+	public void setWinner(int winner) {
+		this.winner = winner;
+	}
+
 	public Field getField(int i, int j) {
 		return field[i][j];
 	}

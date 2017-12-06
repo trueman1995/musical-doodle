@@ -1,25 +1,36 @@
 package common;
 
 import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Set;
 
 public class Start {
 
 	private static Hashtable<Integer, Matchbox> table= new Hashtable<Integer, Matchbox>();
-
+	private static Set<Integer> set = table.keySet();
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		Matchbox start = new Matchbox();
 
 		table.put(start.hashCode(), start);
+
 		allPossibilities(start, false);
+//		int i=0;
+//		for (Iterator<Integer> iterator = set.iterator(); iterator.hasNext();) {
+//			Integer type = (Integer) iterator.next();
+//			System.out.println(type);
+//			i++;
+//			System.out.println(i);
+//		}
+//		System.out.println();
 	}
 	
 	private static void allPossibilities(Matchbox start, boolean cplacer) {
 		System.out.println(start.toString());
 
-		while(!start.finished()) {
+
+		if(!start.finished()) {
 			for (int j = 0; j < 3; j++) {
 				for (int i = 0; i < 3; i++) {
 					if(start.getPlayerAt(i, j) == 0) {

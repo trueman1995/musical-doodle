@@ -44,11 +44,9 @@ public class Field {
 	}
 
 
-
 	public void setNext(Matchbox next) {
 		this.next = next;
 	}
-
 
 
 	public int getProbability() {
@@ -89,8 +87,4 @@ public class Field {
 		return true;
 	}
 
-
-
-	
-	
 }
