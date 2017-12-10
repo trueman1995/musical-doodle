@@ -8,6 +8,7 @@ public class Start {
 
 	private static Hashtable<Integer, Matchbox> table= new Hashtable<Integer, Matchbox>();
 	private static Set<Integer> set = table.keySet();
+//	static int counter = 0;
 
 	public static void main(String[] args) {
 
@@ -28,7 +29,8 @@ public class Start {
 	
 	private static void allPossibilities(Matchbox start, boolean cplacer) {
 		System.out.println(start.toString());
-
+//		counter++;
+//		System.out.println(counter);
 
 		if(!start.finished()) {
 			for (int j = 0; j < 3; j++) {
