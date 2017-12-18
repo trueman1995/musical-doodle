@@ -3,7 +3,7 @@ package graph;
 public class vertex {
 
 	private int number;
-	private int value = 0;
+	//private int value = 0;
 	private boolean visited = false;
 	
 	private int waycost = -1;
