@@ -8,21 +8,20 @@ import java.util.stream.Stream;
 class GraphReader {
 
 	public static graph getGraphFromFile(String string) {
-		// TODO 
-		
+		// TODO
+
 		String fileName = string;
 
-		//read file into stream, try-with-resources
+		// read file into stream, try-with-resources
 		try (Stream<String> stream = Files.lines(Paths.get(fileName))) {
-			String[] file=stream.toArray(String[]::new);
-			for (int i=0; i<file.length; i++)
-				//TODO hier ist die file
+			String[] file = stream.toArray(String[]::new);
+			for (int i = 0; i < file.length; i++)
+				// TODO hier ist die file
 				System.out.println(file[i]);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		return null;
 	}
 
