@@ -3,6 +3,10 @@ package graph;
 import java.io.File;
 import java.util.LinkedList;
 
+/**
+ * @author felix
+ *
+ */
 public class graph {
 
 	private LinkedList<LinkedList<vertex>> vorgaenger;
@@ -14,10 +18,14 @@ public class graph {
 
 	}
 
+	/**
+	 * @param vertex_num
+	 * @param edges
+	 */
 	public graph(int vertex_num, int[][] edges) {
 		LinkedList<vertex> vertexlist = new LinkedList<vertex>();
 		this.edges = edges;
-		// initiales einf�gen aller knoten
+		// initiales einfuegen aller knoten
 
 		vorgaenger = new LinkedList<LinkedList<vertex>>();
 		nachfolger = new LinkedList<LinkedList<vertex>>();
@@ -29,7 +37,7 @@ public class graph {
 
 		}
 
-		// einf�gen der nachfolger/vorgaengerliste
+		// einfuegen der nachfolger/vorgaengerliste
 		for (int i = 0; i < edges.length; i++) {
 			for (int j = 0; j < edges[0].length; j++) {
 				if (edges[i][j] != 0) {
@@ -40,26 +48,48 @@ public class graph {
 		}
 	}
 
+	/**
+	 * @return
+	 */
 	public LinkedList<vertex> getVertexlist() {
 		return vertexlist;
 	}
 
+	/**
+	 * @return
+	 */
 	public LinkedList<LinkedList<vertex>> getvorgaenger() {
 		return vorgaenger;
 	}
 
+	/**
+	 * @return
+	 */
 	public LinkedList<LinkedList<vertex>> getNachfolger() {
 		return nachfolger;
 	}
 
+	/**
+	 * @param i
+	 * @return
+	 */
 	public LinkedList<vertex> getvorgaenger(int i) {
 		return vorgaenger.get(i);
 	}
 
+	/**
+	 * @param i
+	 * @return
+	 */
 	public LinkedList<vertex> getNachfolger(int i) {
 		return nachfolger.get(i);
 	}
 
+	/**
+	 * @param i
+	 * @param j
+	 * @return
+	 */
 	public int getEdgeWeight(int i, int j) {
 		return edges[i][j];
 	}

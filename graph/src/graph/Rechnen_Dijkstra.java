@@ -3,11 +3,18 @@ package graph;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+/**
+ * @author felix
+ *
+ */
 public class Rechnen_Dijkstra {
 
 	static LinkedList<vertex> not_visited = new LinkedList<vertex>();
 	static LinkedList<vertex> visited = new LinkedList<vertex>();
 
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// TODO Reader fertig machen
 
@@ -25,6 +32,11 @@ public class Rechnen_Dijkstra {
 
 	}
 
+	/**
+	 * @param start
+	 * @param ziel
+	 * @param graph
+	 */
 	private static void dijkstra(int start, int ziel, graph graph) {
 
 		vertex start_vertex = graph.getVertexlist().get(start);

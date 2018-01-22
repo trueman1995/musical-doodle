@@ -5,8 +5,16 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+/**
+ * @author felix
+ *
+ */
 class GraphReader {
 
+	/**
+	 * @param string
+	 * @return
+	 */
 	public static graph getGraphFromFile(String string) {
 		// TODO
 
