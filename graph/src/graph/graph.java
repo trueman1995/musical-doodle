@@ -26,17 +26,17 @@ public class graph {
 	 *            matrix, containing ints representing connections between vertexes
 	 */
 	public graph(int[][] edges) {
-		LinkedList<vertex> vertexlist = new LinkedList<vertex>();
+		this.vertexlist = new LinkedList<vertex>();
 		this.edges = edges;
 		// initiales einfuegen aller knoten
 
-		vorgaenger = new LinkedList<LinkedList<vertex>>();
-		nachfolger = new LinkedList<LinkedList<vertex>>();
+		this.vorgaenger = new LinkedList<LinkedList<vertex>>();
+		this.nachfolger = new LinkedList<LinkedList<vertex>>();
 
 		for (int i = 0; i < edges.length; i++) {
-			vertexlist.add(new vertex(i));
-			vorgaenger.add(new LinkedList<vertex>());
-			nachfolger.add(new LinkedList<vertex>());
+			this.vertexlist.add(new vertex(i));
+			this.vorgaenger.add(new LinkedList<vertex>());
+			this.nachfolger.add(new LinkedList<vertex>());
 
 		}
 

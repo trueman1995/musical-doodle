@@ -6,7 +6,7 @@ public class vertex {
 	// private int value = 0;
 	private boolean visited = false;
 
-	private int waycost = -1;
+	private int waycost = 0;
 	private vertex vorgänger;
 
 	public int getNumber() {
