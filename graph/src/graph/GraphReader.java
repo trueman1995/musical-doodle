@@ -25,10 +25,16 @@ class GraphReader {
 			String[] file = stream.toArray(String[]::new);
 			// TODO hier ist die file und wird zeilenwewse ausgegeben
 			for (int i = 0; i < file.length; i++) {
-				if (fileName.startsWith(";")) {
-					// ignore
+				if (file[i].startsWith(";")) {
+					//ignore
 				} else {
-					// parse input
+					// parse input TODO regex bauen
+					if (file[i].matches("")) {
+						String[] tmp =  file[i].split("");
+						
+					}else if(file[i].matches("")){
+						String[] tmp =  file[i].split("");
+					}
 				}
 				// TODO hier ist die file
 				System.out.println(file[i]);
