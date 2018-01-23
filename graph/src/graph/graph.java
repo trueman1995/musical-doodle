@@ -4,7 +4,12 @@ import java.io.File;
 import java.util.LinkedList;
 
 /**
- * @author felix
+ * @author Felix Armbruster felix_armbruster@t-online.de
+ *
+ *         This class represents a non weighted graph in object oriented Java/or
+ *         allows only non-zero weights This Class currently is not very
+ *         flexible, does not allow adding in vertex after creation etc. (maybe
+ *         subject to change)
  *
  */
 public class graph {
@@ -14,15 +19,13 @@ public class graph {
 	private LinkedList<vertex> vertexlist;
 	private int[][] edges;
 
-	public graph(File name) {
-
-	}
-
 	/**
-	 * @param vertex_num
+	 * Constructor
+	 *
 	 * @param edges
+	 *            matrix, containing ints representing connections between vertexes
 	 */
-	public graph(int vertex_num, int[][] edges) {
+	public graph(int[][] edges) {
 		LinkedList<vertex> vertexlist = new LinkedList<vertex>();
 		this.edges = edges;
 		// initiales einfuegen aller knoten
@@ -30,7 +33,7 @@ public class graph {
 		vorgaenger = new LinkedList<LinkedList<vertex>>();
 		nachfolger = new LinkedList<LinkedList<vertex>>();
 
-		for (int i = 0; i < vertex_num; i++) {
+		for (int i = 0; i < edges.length; i++) {
 			vertexlist.add(new vertex(i));
 			vorgaenger.add(new LinkedList<vertex>());
 			nachfolger.add(new LinkedList<vertex>());
@@ -49,37 +52,39 @@ public class graph {
 	}
 
 	/**
-	 * @return
+	 * @return returns a LinkedList of all vertexes of a graph
 	 */
 	public LinkedList<vertex> getVertexlist() {
 		return vertexlist;
 	}
 
 	/**
-	 * @return
+	 * @return returns a LinkedList containing all vorgaenger-LinkedLists
 	 */
 	public LinkedList<LinkedList<vertex>> getvorgaenger() {
 		return vorgaenger;
 	}
 
 	/**
-	 * @return
+	 * @return returns a LinkedList containing all nachfolger-LinkedLists
 	 */
 	public LinkedList<LinkedList<vertex>> getNachfolger() {
 		return nachfolger;
 	}
 
 	/**
-	 * @param i
-	 * @return
+	 * @param index
+	 *            of the vertex in question
+	 * @return a LinkedList of all vorgaengers of vertex i
 	 */
 	public LinkedList<vertex> getvorgaenger(int i) {
 		return vorgaenger.get(i);
 	}
 
 	/**
-	 * @param i
-	 * @return
+	 * @param index
+	 *            of the vertex in question
+	 * @return a LinkedList of all nachfolgers of vertex i
 	 */
 	public LinkedList<vertex> getNachfolger(int i) {
 		return nachfolger.get(i);
@@ -87,8 +92,12 @@ public class graph {
 
 	/**
 	 * @param i
+	 *            vertex at start
 	 * @param j
-	 * @return
+	 *            vertex at end
+	 * @return returns the weight of the edge connecting vertex i with vertex j
+	 *         NOTE: in a directioned graph is does matter wehre the edge starts,
+	 *         and where it ends, in a non directioned it doesn't
 	 */
 	public int getEdgeWeight(int i, int j) {
 		return edges[i][j];

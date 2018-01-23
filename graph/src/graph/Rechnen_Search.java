@@ -30,7 +30,7 @@ public class Rechnen_Search {
 		edges[5][6] = 1;
 		edges[8][9] = 1;
 
-		graph graph = new graph(num, edges);
+		graph graph = new graph(edges);
 
 		tiefensuche(graph, 0);
 
