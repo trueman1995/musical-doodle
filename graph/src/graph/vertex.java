@@ -6,8 +6,8 @@ public class vertex {
 	// private int value = 0;
 	private boolean visited = false;
 
-	private int waycost = 0;
-	private vertex vorgänger;
+	private int waycost = 2147483647;
+	private vertex vorgänger = null;
 
 	public int getNumber() {
 		return number;

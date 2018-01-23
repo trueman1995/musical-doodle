@@ -38,7 +38,7 @@ class GraphReader {
 					String[] tmp_element = tmp_line[j].split("(\\(|\\))");
 					tmp_array[Integer.parseInt(tmp_line[0])][Integer.parseInt(tmp_element[0])] = Integer.parseInt(tmp_element[1]);
 				}
-				System.out.println(file[i]);
+				//System.out.println(file[i]);
 			}
  			return new graph(tmp_array);
 		} catch (IOException e) {
