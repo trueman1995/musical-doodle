@@ -18,7 +18,6 @@ public class Rechnen_Dijkstra {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Reader fertig machen
 
 		graph graph = GraphReader.getGraphFromFile("/local/armbruster/downloads/dijkstra/graph.txt");
 
@@ -27,8 +26,6 @@ public class Rechnen_Dijkstra {
 
 		graph.getVertexlist().get(start).setWaycost(0);
 		dijkstra(start, ziel, graph);
-
-		// printout visited list
 
 	}
 
