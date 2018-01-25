@@ -23,7 +23,7 @@ public class Rechnen_Dijkstra {
 		int start = 6;
 		int ziel = 0;
 
-//		graph.getVertexlist().get(start).setWaycost(0);
+		//	graph.getVertexlist().get(start).setWaycost(0);
 		dijkstra(start, ziel, graph);
 
 	}
