@@ -14,14 +14,14 @@ import java.util.stream.Stream;
  *         A few prerequisites for the file: No comments, empty lines, correct form
  *
  */
-class GraphReader {
+public class GraphReader {
 
 	/**
 	 * @param string
 	 *            path to file
 	 * @return returns graph created from file
 	 */
-	public static graph getGraphFromFile(String string) {
+	public static int[][] getGraphFromFile(String string) {
 		// TODO
 
 		String fileName = string;
@@ -40,7 +40,7 @@ class GraphReader {
 				}
 				//System.out.println(file[i]);
 			}
- 			return new graph(tmp_array);
+ 			return tmp_array;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

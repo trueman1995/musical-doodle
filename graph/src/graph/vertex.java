@@ -6,8 +6,9 @@ public class vertex {
 	// private int value = 0;
 	private boolean visited = false;
 
-	private int waycost = 2147483647;
-	private vertex vorgänger = null;
+	private int waycost = Integer.MAX_VALUE;
+	private vertex predecessor = null;
+	private vertex successor = null;
 
 	public int getNumber() {
 		return number;
@@ -21,12 +22,12 @@ public class vertex {
 		this.waycost = waycost;
 	}
 
-	public vertex getVorgänger() {
-		return vorgänger;
+	public vertex getPredecessor() {
+		return predecessor;
 	}
 
-	public void setVorgänger(vertex vorgänger) {
-		this.vorgänger = vorgänger;
+	public void setPredecessor(vertex vorgänger) {
+		this.predecessor = vorgänger;
 	}
 
 	public vertex(int number) {
@@ -39,5 +40,13 @@ public class vertex {
 
 	public void setVisited(boolean visited) {
 		this.visited = visited;
+	}
+
+	public vertex getSuccessor() {
+		return successor;
+	}
+
+	public void setSuccessor(vertex nachfolger) {
+		this.successor = nachfolger;
 	}
 }
