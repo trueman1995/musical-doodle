@@ -3,6 +3,10 @@ package graph;
 import java.util.Comparator;
 import java.util.LinkedList;
 
+/*
+ * TODO edges als eigene klasse/2dimensionalen vector realisieren. Graphreder und konstruktor entsprechend anpassen. Identifikation von vertexes über ids und nicht mehr über indizes lösen. Unit tests schreiben, sammlung von beispielen anlegen. make files erstellen, dokumentation schreiben
+ */
+
 /**
  * @author Felix Armbruster felix_armbruster@t-online.de
  *
@@ -20,8 +24,8 @@ public class graph {
 	private int[][] edges;
 
 	/**
-	 * Constructor
-	 *
+	 * Constructor, creating a graph from a (weighted) Adjacency matrix
+	 * 
 	 * @param edges
 	 *            matrix, containing ints representing connections between vertexes
 	 */
@@ -52,7 +56,10 @@ public class graph {
 	}
 
 	/**
+	 * Creates a graph from a file TODO create a regex for files
+	 * 
 	 * @param file
+	 *            file to read from
 	 */
 	public graph(String file) {
 		this(GraphReader.getGraphFromFile(file));
@@ -80,7 +87,7 @@ public class graph {
 	}
 
 	/**
-	 * @param index
+	 * @param i
 	 *            of the vertex in question
 	 * @return a LinkedList of all vorgaengers of vertex i
 	 */
@@ -89,7 +96,7 @@ public class graph {
 	}
 
 	/**
-	 * @param index
+	 * @param i
 	 *            of the vertex in question
 	 * @return a LinkedList of all nachfolgers of vertex i
 	 */
@@ -183,6 +190,8 @@ public class graph {
 			}
 		}
 
+		// TODO nice print
+
 		/*
 		 * System.out.println(ziel); vertex tmpVertex =
 		 * graph.getVertexlist().get(ziel).getVorgänger();
@@ -259,6 +268,7 @@ public class graph {
 		return this.cycleSearch(0);
 	}
 
+	// TODO kommentierung
 	/**
 	 * Searches for cycles in this graph, using deepsearch, starting at the first
 	 * vertex of this graph.
