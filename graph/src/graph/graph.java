@@ -130,7 +130,7 @@ public class graph {
 	}
 
 	/**
-	 * resets all precedecessor and successor values of all vertexes in this graph
+	 * resets all predecessor and successor values of all vertexes in this graph
 	 * (sets the to null)
 	 */
 	private void resetSuccessorPredecessor() {
