@@ -18,6 +18,8 @@ import java.util.LinkedList;
  */
 public class Graph {
 
+	// TODO remove everything except list of vertexes
+	// TODO refactoring of german names and identifiers
 	private LinkedList<LinkedList<Vertex>> vorgaenger;
 	private LinkedList<LinkedList<Vertex>> nachfolger;
 	private LinkedList<Vertex> vertexlist;
