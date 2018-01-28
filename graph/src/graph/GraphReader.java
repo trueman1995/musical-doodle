@@ -34,11 +34,9 @@ public class GraphReader {
  			for (int i = 0; i < file.length; i++) {
 				String[] tmp_line = file[i].split("\\s");
 				for (int j = 1; j < tmp_line.length; j++) {
-					//System.out.println(tmp_line[j]);
 					String[] tmp_element = tmp_line[j].split("(\\(|\\))");
 					tmp_array[Integer.parseInt(tmp_line[0])][Integer.parseInt(tmp_element[0])] = Integer.parseInt(tmp_element[1]);
 				}
-				//System.out.println(file[i]);
 			}
  			return tmp_array;
 		} catch (IOException e) {
