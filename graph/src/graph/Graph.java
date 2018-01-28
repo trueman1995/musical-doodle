@@ -16,11 +16,11 @@ import java.util.LinkedList;
  *         subject to change)
  *
  */
-public class graph {
+public class Graph {
 
-	private LinkedList<LinkedList<vertex>> vorgaenger;
-	private LinkedList<LinkedList<vertex>> nachfolger;
-	private LinkedList<vertex> vertexlist;
+	private LinkedList<LinkedList<Vertex>> vorgaenger;
+	private LinkedList<LinkedList<Vertex>> nachfolger;
+	private LinkedList<Vertex> vertexlist;
 	private int[][] edges;
 
 	/**
@@ -29,18 +29,18 @@ public class graph {
 	 * @param edges
 	 *            matrix, containing ints representing connections between vertexes
 	 */
-	public graph(int[][] edges) {
-		this.vertexlist = new LinkedList<vertex>();
+	public Graph(int[][] edges) {
+		this.vertexlist = new LinkedList<Vertex>();
 		this.edges = edges;
 		// initiales einfuegen aller knoten
 
-		this.vorgaenger = new LinkedList<LinkedList<vertex>>();
-		this.nachfolger = new LinkedList<LinkedList<vertex>>();
+		this.vorgaenger = new LinkedList<LinkedList<Vertex>>();
+		this.nachfolger = new LinkedList<LinkedList<Vertex>>();
 
 		for (int i = 0; i < edges.length; i++) {
-			this.vertexlist.add(new vertex(i));
-			this.vorgaenger.add(new LinkedList<vertex>());
-			this.nachfolger.add(new LinkedList<vertex>());
+			this.vertexlist.add(new Vertex(i));
+			this.vorgaenger.add(new LinkedList<Vertex>());
+			this.nachfolger.add(new LinkedList<Vertex>());
 
 		}
 
@@ -61,28 +61,28 @@ public class graph {
 	 * @param file
 	 *            file to read from
 	 */
-	public graph(String file) {
+	public Graph(String file) {
 		this(GraphReader.getGraphFromFile(file));
 	}
 
 	/**
 	 * @return returns a LinkedList of all vertexes of a graph
 	 */
-	public LinkedList<vertex> getVertexlist() {
+	public LinkedList<Vertex> getVertexlist() {
 		return vertexlist;
 	}
 
 	/**
 	 * @return returns a LinkedList containing all vorgaenger-LinkedLists
 	 */
-	public LinkedList<LinkedList<vertex>> getvorgaenger() {
+	public LinkedList<LinkedList<Vertex>> getvorgaenger() {
 		return vorgaenger;
 	}
 
 	/**
 	 * @return returns a LinkedList containing all nachfolger-LinkedLists
 	 */
-	public LinkedList<LinkedList<vertex>> getNachfolger() {
+	public LinkedList<LinkedList<Vertex>> getNachfolger() {
 		return nachfolger;
 	}
 
@@ -91,7 +91,7 @@ public class graph {
 	 *            of the vertex in question
 	 * @return a LinkedList of all vorgaengers of vertex i
 	 */
-	public LinkedList<vertex> getvorgaenger(int i) {
+	public LinkedList<Vertex> getvorgaenger(int i) {
 		return vorgaenger.get(i);
 	}
 
@@ -100,7 +100,7 @@ public class graph {
 	 *            of the vertex in question
 	 * @return a LinkedList of all nachfolgers of vertex i
 	 */
-	public LinkedList<vertex> getNachfolger(int i) {
+	public LinkedList<Vertex> getNachfolger(int i) {
 		return nachfolger.get(i);
 	}
 
@@ -164,19 +164,19 @@ public class graph {
 
 		this.resetWaycost();
 		this.resetSuccessorPredecessor();
-		LinkedList<vertex> queue = new LinkedList<vertex>();
-		LinkedList<vertex> visited = new LinkedList<vertex>();
+		LinkedList<Vertex> queue = new LinkedList<Vertex>();
+		LinkedList<Vertex> visited = new LinkedList<Vertex>();
 		queue.add(this.getVertexlist().get(start));
 		this.vertexlist.get(start).setWaycost(0);
 
 		while (!queue.isEmpty()) {
-			queue.sort(Comparator.comparing(vertex::getWaycost));
-			vertex currentVertex = queue.pop();
+			queue.sort(Comparator.comparing(Vertex::getWaycost));
+			Vertex currentVertex = queue.pop();
 			visited.add(currentVertex);
 
-			LinkedList<vertex> currentNachfolger = this.getNachfolger(currentVertex.getNumber());
+			LinkedList<Vertex> currentNachfolger = this.getNachfolger(currentVertex.getNumber());
 			for (int i = 0; i < currentNachfolger.size(); i++) {
-				vertex tmp_vertex = currentNachfolger.get(i);
+				Vertex tmp_vertex = currentNachfolger.get(i);
 				if (!visited.contains(tmp_vertex)) {
 					int tmpEdgeweight = this.getEdgeWeight(currentVertex.getNumber(), tmp_vertex.getNumber());
 					int tmpWaycost = currentVertex.getWaycost() + tmpEdgeweight;
@@ -217,11 +217,11 @@ public class graph {
 	 */
 	public void deepSearch(int start, int end) {
 
-		LinkedList<LinkedList<vertex>> tmp = this.getNachfolger();
+		LinkedList<LinkedList<Vertex>> tmp = this.getNachfolger();
 
 		if (!tmp.get(start).isEmpty()) {
 
-			vertex current = tmp.get(start).get(0);
+			Vertex current = tmp.get(start).get(0);
 			for (int i = 0; i < tmp.get(start).size(); i++) {
 				System.out.println(current.getNumber() + "-->" + (tmp.get(start).get(i).getNumber() + 1));
 				deepSearch(tmp.get(start).get(i).getNumber(), end);
@@ -244,10 +244,10 @@ public class graph {
 	 */
 	public void broadSearch(int start, int end) {
 
-		LinkedList<LinkedList<vertex>> tmp = this.getNachfolger();
+		LinkedList<LinkedList<Vertex>> tmp = this.getNachfolger();
 
 		if (!tmp.get(start).isEmpty()) {
-			vertex current = tmp.get(start).get(0);
+			Vertex current = tmp.get(start).get(0);
 
 			for (int i = 0; i < tmp.get(start).size(); i++) {
 				System.out.println(current.getNumber() + "-->" + (tmp.get(start).get(i).getNumber() + 1));
@@ -281,11 +281,11 @@ public class graph {
 	public boolean cycleSearch(int start) {
 
 		this.resetVisited();
-		LinkedList<LinkedList<vertex>> tmp = this.getNachfolger();
+		LinkedList<LinkedList<Vertex>> tmp = this.getNachfolger();
 
 		if (!tmp.get(start).isEmpty()) {
 
-			vertex current = tmp.get(start).get(0);
+			Vertex current = tmp.get(start).get(0);
 			if (current.isVisited()) {
 				return true;
 			} else {

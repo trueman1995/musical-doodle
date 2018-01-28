@@ -1,14 +1,14 @@
 package graph;
 
-public class vertex {
+public class Vertex {
 
 	private int number;
 	// private int value = 0;
 	private boolean visited = false;
 
 	private int waycost = Integer.MAX_VALUE;
-	private vertex predecessor = null;
-	private vertex successor = null;
+	private Vertex predecessor = null;
+	private Vertex successor = null;
 
 	public int getNumber() {
 		return number;
@@ -22,15 +22,15 @@ public class vertex {
 		this.waycost = waycost;
 	}
 
-	public vertex getPredecessor() {
+	public Vertex getPredecessor() {
 		return predecessor;
 	}
 
-	public void setPredecessor(vertex vorgänger) {
+	public void setPredecessor(Vertex vorgänger) {
 		this.predecessor = vorgänger;
 	}
 
-	public vertex(int number) {
+	public Vertex(int number) {
 		this.number = number;
 	}
 
@@ -42,11 +42,11 @@ public class vertex {
 		this.visited = visited;
 	}
 
-	public vertex getSuccessor() {
+	public Vertex getSuccessor() {
 		return successor;
 	}
 
-	public void setSuccessor(vertex nachfolger) {
+	public void setSuccessor(Vertex nachfolger) {
 		this.successor = nachfolger;
 	}
 }
