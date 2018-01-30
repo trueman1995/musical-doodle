@@ -1,0 +1,14 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\author{Felix Armbruster}
+\title{Erklärung zu CycleSearch}
+
+\begin{document}
+	\maketitle
+	Meine Lösung der Aufgabe geht folgendermaßen vor: Zuallererst werden alle benötigten variablen zurückgesetzt, dann wird die rekursive Suche nach einem Zyklus gestartet. Startend beim ersten Knoten (dieser wird als besucht markiert) in der Knotenliste des Graphen werden alle von diesem ersten Knoten erreichbaren Knoten betrachtet. Falls die globale Variable stopRecursion nicht gesetzt ist, wird weiter vorgegangen. Für jeden dieser Knoten wird nun überprüft, ob er bereits besucht wurde. Falls nicht, ist dies der Ausgangsknoten für eine weitere Suche, falls ja, wird stopRecursion auf wahr gesetzt und letztendlich wahr als Ergebnis zurückgegeben. Falls dieser letzte Fall nie eintritt hat der Graph keinen Zyklus und es wird letztendlich falsch zurückgeliefert.
+\end{document}
