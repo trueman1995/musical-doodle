@@ -93,12 +93,12 @@ public class Graph {
 
 	/**
 	 * Resets the visited of all vertices in this graph (sets them to false)
-	 */
+	 
 	private void resetVisited() {
 		for (int i = 0; i < vertexlist.size(); i++) {
 			vertexlist.get(i).setVisited(false);
 		}
-	}
+	}*/
 
 	/**
 	 * Performs a waysearch starting from vertex with index 'start' ending at vertex
@@ -257,12 +257,19 @@ public class Graph {
 	 */
 	public boolean cycleSearch() {
 		// resets all visited fields in all vertices, also both global variables
-		this.resetVisited();
+		this.resetWorkinProgress();
 		stopRecursion = false;
 		hasCycles = false;
 		// calls the recursive cycleSearch on the first vertex of this graph
 		this.cycleSearch(vertexlist.getFirst().getID());
 		return hasCycles;
+	}
+
+	private void resetWorkinProgress() {
+		// TODO Auto-generated method stub
+		for (Vertex vertex : vertexlist) {
+			vertex.setWorkInProgress(0);
+		}
 	}
 
 	/**
@@ -287,10 +294,11 @@ public class Graph {
 		if (tmp.getWorkInProgress() == 0) {
 			for (Edge tmp_edge : tmpEgdes) {
 				if (!hasCycles) {
-					cycleSearch(tmp_edge.getID());
 					tmp.setWorkInProgress(1);
+					cycleSearch(tmp_edge.getID());
 				}
 			}
+			
 		} else if (tmp.getWorkInProgress() == 1) {
 			hasCycles = true;
 		}
