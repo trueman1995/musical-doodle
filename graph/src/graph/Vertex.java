@@ -16,6 +16,7 @@ public class Vertex {
 	private int waycost;
 	private LinkedList<Edge> successor;
 	private Vertex predecessor;
+	private int workInProgress = 0;
 
 	/**
 	 * Constructor taking the ID of the graph as parameter.
@@ -167,6 +168,20 @@ public class Vertex {
 	 */
 	public void setPredecessor(Vertex predecessor) {
 		this.predecessor = predecessor;
+	}
+
+	/**
+	 * @return the workInProgress
+	 */
+	public int getWorkInProgress() {
+		return workInProgress;
+	}
+
+	/**
+	 * @param workInProgress the workInProgress to set
+	 */
+	public void setWorkInProgress(int workInProgress) {
+		this.workInProgress = workInProgress;
 	}
 
 }

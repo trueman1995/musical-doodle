@@ -277,23 +277,25 @@ public class Graph {
 	private void cycleSearch(String ID_start) {
 		// takes all outgoing Edges of the starting vertex
 		LinkedList<Edge> tmpEgdes = getVertex(ID_start).getSuccessor();
-		getVertex(ID_start).setVisited(true);
+		Vertex tmp = getVertex(ID_start);
 		// Iterates over all outgoing edges, if a already encountered vertex is
-		// encountered again (cycle) hasCycles is set to true, and the stopRecursion
-		// flag is set. If the stopRecusrsion flag is set nothing is done at all.
+		// encountered again while currently being not finished, we have a cycle. The
+		// hasCycles flag is set since we don't need to look further.
 		// A While loop would fit better probably but in that case an Iterator or a
 		// counter variable would be needed, so not much is gained from this
 		// optimization.
-		for (Edge tmp_edge : tmpEgdes) {
-			if (!stopRecursion) {
-				if (!tmp_edge.getSuccessor().isVisited()) {
+		if (tmp.getWorkInProgress() == 0) {
+			for (Edge tmp_edge : tmpEgdes) {
+				if (!hasCycles) {
 					cycleSearch(tmp_edge.getID());
-				} else {
-					this.stopRecursion = true;
-					this.hasCycles = true;
+					tmp.setWorkInProgress(1);
 				}
 			}
+		} else if (tmp.getWorkInProgress() == 1) {
+			hasCycles = true;
 		}
+
+		tmp.setWorkInProgress(3);
 	}
 
 	/**
