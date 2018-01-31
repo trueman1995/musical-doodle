@@ -154,7 +154,7 @@ public class Vertex {
 	 * Returns the predecessor attribute, only used in the Dijkstra algorithm in the
 	 * Graph class. TODO: Subject to change, will be moved to the graph class.
 	 * 
-	 * @return retruns the predecessor
+	 * @return returns the predecessor
 	 */
 	public Vertex getPredecessor() {
 		return predecessor;
@@ -171,14 +171,18 @@ public class Vertex {
 	}
 
 	/**
-	 * @return the workInProgress
+	 * returns the workInProgress flag.
+	 * 
+	 * @return the workInProgress. 0 for not beeing worked on, 1 for beeing worked
+	 *         on, 2 for finished.
 	 */
 	public int getWorkInProgress() {
 		return workInProgress;
 	}
 
 	/**
-	 * @param workInProgress the workInProgress to set
+	 * @param workInProgress
+	 *            the workInProgress to set
 	 */
 	public void setWorkInProgress(int workInProgress) {
 		this.workInProgress = workInProgress;
