@@ -37,7 +37,7 @@ public class TicTacToe {
 			if (field.getWinner() == 1) {
 				System.out.println("Der Computer hat gewonnen\n");
 			} else {
-				System.out.println("der menschliche spieler hat gewonnen\n");
+				System.out.println("der menschliche Spieler hat gewonnen\n");
 			}
 
 		} else {

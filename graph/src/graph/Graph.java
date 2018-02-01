@@ -303,7 +303,7 @@ public class Graph {
 			hasCycles = true;
 		}
 
-		tmp.setWorkInProgress(3);
+		tmp.setWorkInProgress(2);
 	}
 
 	/**
